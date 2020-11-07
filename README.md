@@ -6,3 +6,14 @@
 
 需要nodejs的支持
 
+## 安装 
+
+```
+./install.sh
+```
+
+## 使用
+```
+
+ICmodPacker
+```

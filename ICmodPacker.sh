@@ -190,6 +190,14 @@ echo '{
 
 echo '{"presets": ["@babel/preset-env"]}' > .babelrc;
 
+#创建jsconfig.json
+echo '{
+   "compilerOptions": {
+     "target": "es6",
+     "experimentalDecorators": true
+   },
+   "exclude": ["node_modules","bin","dist"]
+}' > jsconfig.json
 #创建入口文件
 
 echo "alert('hello world')" > src/main.js
