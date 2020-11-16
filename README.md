@@ -62,6 +62,3 @@ cd HzModPackTool
 ./UnInstall.sh
 ```
 
-### 一键搭建termux的脚本
-
-（待续）
