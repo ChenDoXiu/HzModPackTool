@@ -5,7 +5,11 @@ hash node 2>/dev/null || {
   echo "检测到当前未安装nodejs，正在安装";
   apt install nodejs
 }
-
+#检测rsync是否存在
+hash rsync 2>/dev/null || {
+  echo "检测到当前未安装nodejs，正在安装";
+  apt install rsync
+}
 
 echo -n "项目名称(默认值:ModName,不能包含空格和特殊字符，否则创建会失败)："
 read NAME;
@@ -29,12 +33,20 @@ HZNAME=${HZNAME:-"Inner_Core_Test"}
 
 #HZ目录mod文件夹地址
 HZDIR="/sdcard/games/horizon/packs/"$HZNAME"/innercore/mods/";
+
+if [ -d $HZDIR ] || [ -f $HZDIR ]; then
+  echo "已找到HZ的mods文件夹："$HZDIR;
+else
+  echo "找不到HZ的mods文件夹
+请检查horizon包名是否正确
+如果包名无误依旧失败，请查看：（假装有个链接）
+"
+fi
 #模组文件夹路径
 MODDIR=$HZDIR$NAME
 
 echo "当前mod创建的目录为：
 "$MODDIR"
-
 
 按任意键继续,按ctrl+C停止"
 read _aa
@@ -108,7 +120,6 @@ echo '{
   "description": "'$DESC'",
   "main": "src/main.js",
   "scripts": {
-    "dev": "webpack --mode=production;rsync -av --exclude node_modules ./ '$MODDIR'",
     "build": "webpack --mode=production;rsync -av --exclude node_modules ./ '$MODDIR'"
   },
   "author": "'$AUTHOR'",
@@ -202,10 +213,10 @@ echo '{
 
 echo "alert('hello world')" > src/main.js
 
-echo "正在安装库文件"
+echo "正在安装webpack等软件"
 npm install
 if [ $? != 0 ]; then 
-  echo "库文件安装失败" 
+  echo "安装失败，详细问题请看上方报错" 
   exit 1
 fi;
 
@@ -218,6 +229,5 @@ echo "感谢使用！
 项目地址："./$NAME"
 /------------------------------------
 请使用 cd "./$NAME"  进入项目
-使用 npm run dev 编译开发环境代码
-使用 npm run build 编译生产环境代码
+使用 npm run build 推送项目到Horizon
 "
