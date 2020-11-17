@@ -1,13 +1,8 @@
-noremap j k
-noremap k j
 map S :w<CR>
 map Q :q<CR>
 set foldmethod=indent
 set mouse=a
 set noswapfile
-"set tags=tags;
-"set autochdir
-"---------中文化-------------
 "禁用VI兼容模式 
 
 set nocompatible     
@@ -29,14 +24,10 @@ set fileencoding=utf-8
 
 set fileencodings=ucs-bom,utf-8,gbk,default,latin1 
 
-"设置中文帮助
-
-set helplang=cn
-
 "根据文件类型设置缩进格式
 set hlsearch
 set incsearch
-" set relativenumber
+
 au FileType html,python,vim,javascript setl shiftwidth=2
 
 au FileType html,python,vim,javascript setl tabstop=2
@@ -61,14 +52,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'mattn/emmet-vim'
-"Plug 'hail2u/vim-css3-syntax'
-"Plug 'ap/vim-css-color'
-"Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Chiel92/vim-autoformat'
 Plug 'w0rp/ale'
-"Plug 'turbio/bracey.vim'
-"Plug 'mhartington/vim-typings'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
@@ -94,7 +80,7 @@ map <C-n> :NERDTreeToggle<CR>
 " # <leader>cu 取消注释
 " 
 "
-" ---------cocvim--------
+" ---------cocvim相关--------
 
 
 
