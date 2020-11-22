@@ -35,7 +35,7 @@ git clone https://github.com/ChenDoXiu/HzModPackTool
 ```
 cd HzModPackTool
 chmod 777 * #赋予脚本执行权限
-./install.sh
+./Install.sh
 ```
 
 ## 创建空项目
@@ -61,4 +61,16 @@ npm run build
 cd HzModPackTool
 ./UnInstall.sh
 ```
+
+## 获取补全提示
+
+** 注意：以下仅适用于本项目提供的vim配置文件 如果没有安装好vim以及所需的插件，请参考本项目的vim搭建教程**
+
+在安装好vim和vim的插件之后，vim已经具备补全的能力了，但要正确的提示HzMod的API，我们需要导入HZ官方提供的d.ts文件
+
+导入的方法很简单，去官方的工具链仓库下载一份，放进项目里即可
+
+官方的工具链地址：https://github.com/zheka2304/innercore-mod-toolchain/tree/master/toolchain-mod/toolchain/declarations
+
+如果只是需要得到HZ API的提示，仅需要下载`core-engine.d.ts`文件即可
 
