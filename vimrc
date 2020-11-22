@@ -1,67 +1,70 @@
-map S :w<CR>
-map Q :q<CR>
+"设置代码自动折叠
 set foldmethod=indent
+"使vim支持鼠标（触摸屏）
 set mouse=a
+"禁用生成交换文件
 set noswapfile
 "禁用VI兼容模式 
-
 set nocompatible     
-
 "Vim 的内部编码
-
 set encoding=utf-8         
-
 "Vim 在与屏幕/键盘交互时使用的编码(取决于实际的终端的设定)
-
-set termencoding=utf-8          
-
+set termencoding=utf-8
 "Vim 当前编辑的文件在存储时的编码
-
-
-set fileencoding=utf-8     
-
+set fileencoding=utf-8
 "Vim 打开文件时的尝试使用的编码
-
-set fileencodings=ucs-bom,utf-8,gbk,default,latin1 
-
-"根据文件类型设置缩进格式
+set fileencodings=utf-8,gbk,default
+"设置搜索高亮显示
 set hlsearch
+" 打开实时查找预览
 set incsearch
-
-au FileType html,python,vim,javascript setl shiftwidth=2
-
-au FileType html,python,vim,javascript setl tabstop=2
-
-au FileType java,php setl tabstop=2
-
-"--------弹出补全颜色--------
+"弹出补全窗口的颜色
 highlight Pmenu ctermbg=238 ctermfg=7
 highlight PmenuSel ctermbg=233 ctermfg=15
-
-"-----------基础配置-----------
+"设置每层缩进空格数量
 set sw=2
+"设置tab按钮的缩进空格数量
 set ts=2
-set expandtab autoindent
+"将tab转换为空格
+set expandtab
+"设置自动缩进
+set autoindent
+"显示行号
 set number
+"显示当前光标位置
 set ruler
+"显示整行下划线
 set cursorline
+"显示当前模式
 set showmode
+"设置leader键为“，”
 let mapleader=","
+"配置插件列表
 call plug#begin('~/.vim/plugged')
+"cocvim 提供补全支持
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"nerdtree 提供树形目录支持
 Plug 'scrooloose/nerdtree'
+"light line 提供底部状态栏
 Plug 'itchyny/lightline.vim'
+"emmet HTML的插件（可能用不到
 Plug 'mattn/emmet-vim'
+"snippets 提供代码片段
 Plug 'honza/vim-snippets'
+"自动格式化
 Plug 'Chiel92/vim-autoformat'
+"代码检查
 Plug 'w0rp/ale'
+"自动括号闭合
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "-------- nerd tree --------
+"设置Ctrl+n为树形目录打开
 map <C-n> :NERDTreeToggle<CR>
 
-"--------注释--------------                                     let g:NERDSpaceDelims = 1
+"--------注释------------
+let g:NERDSpaceDelims = 1
   let g:NERDDefaultAlign = 'left'
   let g:NERDCustomDelimiters = {
     \ 'j avascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' },
@@ -81,9 +84,8 @@ map <C-n> :NERDTreeToggle<CR>
 " 
 "
 " ---------cocvim相关--------
-
-
-
+"以下代码均是从coc vim的项目里复制粘贴过来的
+"有英文的注释，自己看吧
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :

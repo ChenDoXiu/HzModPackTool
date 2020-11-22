@@ -1,4 +1,4 @@
-[返回上级](readme.md)
+[返回上级](README.md)
 
 # 目录
 - <a href="#1">termux配置</a>
@@ -78,7 +78,18 @@ tsu
 
 # <span id="2">vim的插件安装与配置</span>
 
-为了使vim的配置能够做到开箱即用，避免不必要的配置，我已经将常用的配置保存成一个配置文件“vimrc”，只需要简单的几个命令，就可以使用这套配置
+
+为了使vim的配置能够做到开箱即用，避免不必要的配置，我已经将开发HZ Mod常用的配置保存成一个配置文件“vimrc”，只需要简单的几个命令，就可以使用这套配置
+
+如果你想知道这套配置文件添加了哪些功能，可以直接阅读`vimrc`文件，里面添加了大量的注释，对每段配置都做出了详细的解释，你可以按照需求添加或者修改
+
+## 安装Vim
+
+由于termux官方的vim不带Python支持，可能某些插件无法正常运行,我们需要安装一个支持Python的vim
+
+```
+apt install vim-python
+```
 
 ## 安装Vim-plug
 
@@ -97,10 +108,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 vim的默认配置文件为存放在用户目录下的.vimrc中，所以我们需要拷贝这个文件到指定位置
 
 ```
-cp ./vimrc ~/.vimrc
+mv ~/.vimrc ~/.vimrc.bak  #备份原配置
+cp ./vimrc ~/.vimrc       #将本套配置应用到vim中
 ```
 
 ## 安装所需的插件
+
+在上一步中，我们导入了vim的配置，现在要将配置文件中的的插件安装到vim中去
 
 输入 “vim” 命令 进入vim中
 
@@ -111,6 +125,7 @@ cp ./vimrc ~/.vimrc
 ```
 :PlugInstall
 ```
+此步骤需要到github上下载插件，如果没有科学访问，可能会非常慢
 
 等待插件安装完成
 
@@ -131,9 +146,10 @@ vim 进入命令模式输入
 ```
 :CocInstall coc-snippets
 ```
+
 # vim的使用
 
-由于vim的教程网上遍地都是，这里不会讲述vim的基本使用
+由于vim的教程网上遍地都是，这里不会讲述vim的基本使用，只是对本项目提供的vim配置文件的一些方法进行说明
 
 注意：以下的功能仅针对本项目提供的`vimrc`进行的
 

@@ -1,7 +1,7 @@
 # 一个基于termux简易的HZ mod一键环境搭建脚本
 
 
-关于termux环境的搭建，请看这里 [termux与vim的安装与配置](termux.md)
+关于termux环境的搭建和vim编辑器的安装，请看这里 [termux与vim的安装与配置](termux.md)
 
 ## 介绍
 
@@ -64,7 +64,7 @@ cd HzModPackTool
 
 ## 获取补全提示
 
-** 注意：以下仅适用于本项目提供的vim配置文件 如果没有安装好vim以及所需的插件，请参考本项目的vim搭建教程**
+**注意：以下仅适用于本项目提供的vim配置文件 如果没有安装好vim以及所需的插件，请参考本项目的vim搭建教程**
 
 在安装好vim和vim的插件之后，vim已经具备补全的能力了，但要正确的提示HzMod的API，我们需要导入HZ官方提供的d.ts文件
 
@@ -74,3 +74,4 @@ cd HzModPackTool
 
 如果只是需要得到HZ API的提示，仅需要下载`core-engine.d.ts`文件即可
 
+如果嫌麻烦的话，本项目已经复制了一份d.ts文件，你直接复制到项目里去就行了
