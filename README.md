@@ -1,7 +1,7 @@
 # 一个基于termux简易的HZ mod一键环境搭建脚本
 
 
-需要nodejs的支持
+关于termux环境的搭建，请看这里 [termux与vim的安装与配置](termux.md)
 
 ## 介绍
 
@@ -15,7 +15,7 @@
 
 直接使用npm安装库（或许吧）
 
-注意：本脚本仅适用于termux
+**注意：本脚本仅适用于termux**
 
 
 ## 安装 
